@@ -54,11 +54,7 @@ def extract_movies(dom):
         # add actors
         actor_list = []
 
-        # ??!! WERKT LAST MINUTE NIET MEER !!??
-        # movie_actors = movie.select('a[href*="?ref_=adv_li_dr"]')
-
-        # stars + directores (foute oplossing)
-        movie_actors = movie.select('a[href*="/name/"]')
+        movie_actors = movie.select('a[href*="?ref_=adv_li_st"]')
 
         for actor in movie_actors:
             actor_list.append(actor.text)
