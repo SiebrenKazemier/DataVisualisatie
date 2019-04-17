@@ -41,7 +41,7 @@ df = df.dropna()
 columns = ['pop_density', 'infant_mortality', 'gdp_in_dollars']
 for column in columns:
     df[column] = pd.to_numeric(df[column])
-"""
+
 # histogram of the gdp in dollars
 df.hist(column='gdp_in_dollars', bins=len(
     df['gdp_in_dollars'].unique()), grid=False, figsize=(8, 5), color='#86bf91', rwidth=0.5)
@@ -55,7 +55,7 @@ plt.boxplot(df['infant_mortality'])
 plt.title('Infant mortality')
 plt.ylabel('mortality per 1000 births')
 plt.show()
-"""
+
 # print the gdp data
 print("values for gdp in dollars are:")
 print(f"Mean: {df['gdp_in_dollars'].mean()}")
