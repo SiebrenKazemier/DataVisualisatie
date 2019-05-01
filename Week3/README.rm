@@ -1,0 +1,13 @@
+•	Explain the difference between the == operator and the === operator.
+Het verschil tussen == en === is dat de == vergelijking de 2 types eerst omzet naar de overeenkomende types. Zo geeft 0 == “” geeft true. De === vergelijking vergelijkt de overeenkomende waardes en types. 0 === “” geeft false.  
+
+•	Explain what a closure is. (Note that JavaScript programs use closures very often)
+Het in staat zijn om te verwijzen naar een specifiek exemplaar van een lokaal object in een loep. Hiermee kan je met behulp van functies makkelijk waardes ergens aan binden zonder dat het met elkaar in de weg zit.
+
+•	Explain what higher order functions are.
+Functies die werken op andere functies, ofwel door ze als argumenten te gebruiken of door ze terug te zetten, worden hogere-orde functies genoemd. Door het gebruik van hogere-orde functies kunnen er bijvoorbeeld nieuwe functies gecreëerd worden door andere functies. De functies zelf zijn vaak abstract en bevatten veel lokale variables. 
+
+•	Explain what a query selector is and give an example line of JavaScript that uses a query selector.
+Een query selector is een functie die het eerste element returned dat matched met de aangegeven code/ string. 
+document.querySelector(".example");
+hier word het eerste element in het document gevonden waarbij de class gelijk is aan “.example”
