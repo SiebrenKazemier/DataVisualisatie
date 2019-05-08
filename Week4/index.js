@@ -31,9 +31,6 @@ function importData() {
     dataList = dataList.sort(function(a, b){return b.KTOE-a.KTOE});
     dataList = dataList.slice(1, 21);
 
-    // randomize data
-    // dataList = shuffle(dataList);
-
     svgBarChart();
   });
 }
@@ -88,13 +85,29 @@ function svgBarChart() {
                    .attr("class", "tooltip")
                    .style("display", "none");
 
+
+ // add correct margins to x axis
+ svg.append("g")
+    .attr('transform', 'translate(0, ' + (h - margin.bottom) +  ')')
+    .call(xAxis);
+
+ // add correct margins to y axis
+ svg.append("g")
+    .attr('transform', 'translate('+ (margin.left) + ',0)')
+    .call(yAxis);
+
   // adds size and colour to the bars
   rect.attr("width", yScale.bandwidth())
-      .attr("height", function(d) {
-          return h - xScale(d.KTOE) - margin.bottom;
-      })
       .attr("x", function(d, i) {
         return yScale(d.Country);
+      })
+      .transition()
+      .duration(200)
+      .delay(function (d, i) {
+          return i * 40;
+      })
+      .attr("height", function(d) {
+          return h - xScale(d.KTOE) - margin.bottom;
       })
       .attr("y", function(d) {
         return xScale(d.KTOE);
@@ -102,8 +115,9 @@ function svgBarChart() {
       .attr("fill", function(d) {
         return "rgb(0, 70, " + (d.KTOE / 1000 * 3) + ")"
       })
-      // on mouse enter change colour
-      .on('mouseenter', function (actual, i) {
+
+  // on mouse enter change colour
+  rect.on('mouseenter', function (actual, i) {
             d3.select(this).attr('opacity', 0.5)
                            .transition()
                            .duration(300)
@@ -128,7 +142,7 @@ function svgBarChart() {
 
       tooltip.attr("transform", "translate(" + xPosition + "," + yPosition + ")");
       tooltip.select("text").text(d.KTOE);
-      });
+      })
 
   // create text near y-axis
   svg.append('text')
@@ -174,35 +188,6 @@ tooltip.append("text")
        .style("text-anchor", "middle")
        .attr("font-size", "12px")
        .attr("font-weight", "bold");
-
-// add correct margins to x axis
-svg.append("g")
-   .attr('transform', 'translate(0, ' + (h - margin.bottom) +  ')')
-   .call(xAxis);
-
-// add correct margins to y axis
-svg.append("g")
-   .attr('transform', 'translate('+ (margin.left) + ',0)')
-   .call(yAxis);
 };
 
 importData();
-
-// function to randomize a given list
-function shuffle(array) {
-  var currentIndex = array.length, temporaryValue, randomIndex;
-
-  // While there remain elements to shuffle
-  while (0 !== currentIndex) {
-
-    // Pick a remaining element
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex -= 1;
-
-    // Swap element with the current element
-    temporaryValue = array[currentIndex];
-    array[currentIndex] = array[randomIndex];
-    array[randomIndex] = temporaryValue;
-  }
-  return array;
-}
