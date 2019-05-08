@@ -19,7 +19,7 @@ def read_csv(input_file):
 
 
 def write_json(csv_file, output_file):
-    json_file = csv_file.to_json(path_or_buf=output_file)
+    json_file = csv_file.to_json(path_or_buf=output_file, orient="index")
     return json_file
 
 

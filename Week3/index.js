@@ -108,19 +108,42 @@ function showData()
 
 
 let temperature = [];
+let hour = [];
+let day = [];
 
 var fileName = "data.json";
 var txtFile = new XMLHttpRequest();
 txtFile.onreadystatechange = function() {
   if (txtFile.readyState === 4 && txtFile.status == 200) {
+      // console.log(JSON.parse(txtFile.responseText));
+      // document.getElementById('bottle').textContent = JSON.parse(txtFile.responseText["LAT;;;;;52.3740"]);
+      var items = JSON.parse(txtFile.responseText);
       console.log(JSON.parse(txtFile.responseText));
+      //
+      // for(var i; i < )
+
+      // var items = test["Year;Month;Day;Hour;Minute;Temperature"];
+      // //
+      for(line in items)
+      {
+        // console.log(items[line].split(".")[1]);
+
+
+        console.log(items[line])
+        // temperature.push(items[line].split(".")[1])
+        // day.push(items[line].split(";")[2])
+        // hour.push(items[line].split(";")[3])
+      }
+      // console.log(JSON.parse(txtFile.responseText.Year))
+
   }
 }
 txtFile.open("GET", fileName);
 txtFile.send();
 
+console.log(temperature)
 
-console.log(Object.keys(txtFile));
+// console.log(Object.keys(txtFile));
 
 
 

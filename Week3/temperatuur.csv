@@ -1,15 +1,4 @@
-LAT;;;;;52.3740
-LON;;;;;4.88969
-ASL;;;;;13.0000
-CITY;;;;;Amsterdam
-DOMAIN;;;;;NEMS4
-LEVEL;;;;;2 m above gnd
-NAME;;;;;Temperature
-UNIT;;;;;°C
-AGGREGATION;;;;;
-UTC_OFFSET;;;;;2
-
-Year;Month;Day;Hour;Minute;Temperature  [2 m above gnd]
+Year;Month;Day;Hour;Minute;Temperature
 2019;04;23;00;00;14.05
 2019;04;23;01;00;12.94
 2019;04;23;02;00;11.74
