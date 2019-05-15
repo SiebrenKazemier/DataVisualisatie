@@ -1,3 +1,9 @@
+/******************************************************************************
+Name: Siebren Kazemier
+School: Uva
+Student number: 12516597
+Project: Assignment week 5, Creating scatter plot
+******************************************************************************/
 const width = 1000;
 const height = 500;
 
