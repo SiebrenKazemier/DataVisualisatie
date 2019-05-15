@@ -366,8 +366,6 @@ function scatterPlot() {
       .attr("x", (width-margin.right-margin.left)/2 +margin.left)
       .attr("y", margin.top / 2)
       .attr("text-anchor", "middle")
-      .attr("font-size", 30)
-      .attr("font-family", "Arial")
       .attr("opacity", 0.8)
       .text("Teen in violent area's and pregnancies")
 
